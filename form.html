@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Validation</title>
+</head>
+<style>
+    form{
+        position: relative;
+        margin-top:60px;
+    }
+    .dec{
+        height:40px;
+        width:250px;
+        text-align: center;
+    }
+</style>
+<body>
+    <center>
+    <form>
+        <h2>Simple Email Validation </h2></br></br>
+        <input type="email" id="email" placeholder="Enter Your Email" class="dec" onkeyup="names()"><span id="msg"></span></br></br>
+        <input type="submit" value="submit" id='submit'>
+    </form>
+    </center>
+    <script>
+        document.getElementById("submit").style.visibility="hidden";
+        const names=()=>{
+                var store=document.getElementById("email").value;
+                let pattern=/^\w+[a-zA-Z0-9\.-]+@([a-z])+(\.[a-z]{2,3})+$/g
+                let y=pattern.test(store);
+                if(y==true){
+                    document.getElementById("msg").innerHTML="<img src='valid.jpg' style='width:20px;'>";
+                    document.getElementById('submit').style.visibility = 'visible';
+                    document.getElementById("email").style.backgroundColor="green";
+                    document.getElementById("email").style.color="white";
+
+
+                }
+                else if(store==""){
+                    document.getElementById("msg").innerHTML="";  
+                    document.getElementById('submit').style.visibility = 'hidden';
+                }
+                else{
+                    document.getElementById("msg").innerHTML="<img src='invalid.jpg' style='width:20px;'>";
+                    document.getElementById('submit').style.visibility = 'hidden';
+                    document.getElementById("email").style.backgroundColor="red";
+                    document.getElementById("email").style.color="white";
+
+                }
+        }
+    </script>
+</body>
+</html>
